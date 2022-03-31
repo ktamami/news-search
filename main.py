@@ -4,7 +4,7 @@ import datetime
 import pandas as pd
 
 today = datetime.datetime.today()
-file_date = date = today.strftime("%Y%m%d")
+file_date =　today.strftime("%Y%m%d")
 
 keywords = ["コーヒー", "珈琲", "coffee"]
 nikkei_url = "https://www.nikkei.com/search?keyword="
