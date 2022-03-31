@@ -36,7 +36,7 @@ class NikkeiSearch:
             self.articles.append(article)
         df = pd.DataFrame(self.articles)
         df.duplicated(subset=["title"])
-        df.to_excel(f"{file_date}_nikkei_tenki.xlsx", encoding='utf_8_sig', index=False)
+        df.to_excel(f"{file_date}_nikkei_coffee.xlsx", encoding='utf_8_sig', index=False)
 
 nikkei = NikkeiSearch()
 
