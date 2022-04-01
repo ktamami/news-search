@@ -27,6 +27,7 @@ class NikkeiSearch:
             soup = BeautifulSoup(response_html, "html.parser")
             titles = soup.find_all(name="h3", class_="nui-card__title")
             descriptions = soup.find_all(name="a", class_="nui-card__excerpt")
+            # replace 全角("　")と半角(" ")どっちも必要。
             self.title_list = [title.text.replace("　", "").replace(" ", "").replace("\n", "") for title in titles]
             self.url_list = [desc.get_attribute_list("href")[0] for desc in descriptions]
             self.desc_list = [desc.text.replace("　", "").replace(" ", "").replace("\n", "") for desc in descriptions]
