@@ -8,7 +8,7 @@ from openpyxl.styles.fonts import Font
 today = datetime.datetime.today()
 file_date = date = today.strftime("%Y%m%d")
 
-keywords = ["コーヒー", "珈琲", "coffee"]
+keywords = ["コーヒー", "珈琲", "coffee", "カフェ 福岡"]
 
 nikkei_url = "https://www.nikkei.com/search"
 
