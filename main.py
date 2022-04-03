@@ -9,8 +9,8 @@ today = datetime.datetime.today()
 file_date = date = today.strftime("%Y%m%d")
 
 keywords = ["コーヒー", "珈琲", "coffee"]
-volume = "10"
-nikkei_url = "https://www.nikkei.com/"
+
+nikkei_url = "https://www.nikkei.com/search"
 
 class NikkeiSearch:
 
@@ -21,7 +21,9 @@ class NikkeiSearch:
         self.url_list = []
 
     def search(self, name):
-        response = requests.get(f"{nikkei_url}search?keyword={name}&volume={volume}")
+        params = {"keyword": name, "volume": "10"}
+        response = requests.get(nikkei_url, params=params)
+        print(response.url)
         if response.status_code == requests.codes.ok:
             response_html = response.text
             soup = BeautifulSoup(response_html, "html.parser")
@@ -69,9 +71,9 @@ class NikkeiSearch:
         for url in range(self.number_of_articles):
             ws[f"C{n}"].hyperlink = ws[f"C{n}"].value
             n += 1
-        ws.column_dimensions["A"].width = 50
+        ws.column_dimensions["A"].width = 45
         ws.column_dimensions["B"].width = 70
-        ws.column_dimensions["c"].width = 70
+        ws.column_dimensions["c"].width = 55
         wb.save(f"{file_date}_nikkei_coffee.xlsx")
 
 
